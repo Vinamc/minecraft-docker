@@ -30,7 +30,7 @@ NURSERY_MINIMUM=$(($HEAP_SIZE / 4))
 NURSERY_MAXIMUM=$(($HEAP_SIZE * 2 / 5))
 
 # Setup Aikar's flag
-if [$($HEAP_SIZE) -gt 12000]
+if ["$HEAP_SIZE" -gt 12000]
 then
     FLAG_MEMORY="-XX:G1NewSizePercent=40 -XX:G1MaxNewSizePercent=50 -XX:G1HeapRegionSize=16M -XX:G1ReservePercent=15 -XX:InitiatingHeapOccupancyPercent=20"
 else
