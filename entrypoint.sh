@@ -14,6 +14,8 @@
 #            or 12GB.
 HEAP_SIZE=$(($GB_MEMORY * 1024))
 
+echo "Memory: ${HEAP_SIZE}\n"
+
 # JAR_NAME:  The name of your server's JAR file. The default is
 #            "paperclip.jar".
 #
