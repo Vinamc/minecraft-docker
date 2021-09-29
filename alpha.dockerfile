@@ -1,7 +1,7 @@
 FROM adoptopenjdk/openjdk8-openj9:alpine
 
 LABEL maintainer="Alex"
-LABEL spigot_version="<= 1.12.x"
+LABEL spigot_version="server <= 1.12.x"
 
 RUN mkdir /server
 RUN mkdir /src
