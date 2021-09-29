@@ -13,4 +13,6 @@ ENV JAR_NAME=paperclip.jar
 
 COPY . /src
 
-CMD [ "sh", "/src/entrypoint.sh" ]
+RUN sed -i 's/\r$//' /src/docker-entrypoint.sh && chmod +x /src/docker-entrypoint.sh
+
+CMD [ "sh", "/src/docker-entrypoint.sh" ]

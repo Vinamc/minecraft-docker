@@ -1,7 +1,7 @@
 FROM adoptopenjdk/openjdk11-openj9:alpine
 
 LABEL maintainer="Alex"
-LABEL spigot_version="1.12.x <= server <= 1.17.x"
+LABEL spigot_version="1.12.x <= server <= 1.16.x"
 
 RUN mkdir /server
 RUN mkdir /src
@@ -13,4 +13,6 @@ ENV JAR_NAME=paperclip.jar
 
 COPY . /src
 
-CMD [ "sh", "/src/entrypoint.sh" ]
+RUN sed -i 's/\r$//' /src/docker-entrypoint.sh && chmod +x /src/docker-entrypoint.sh
+
+CMD [ "sh", "/src/docker-entrypoint.sh" ]
