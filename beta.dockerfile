@@ -3,6 +3,10 @@ FROM adoptopenjdk/openjdk11-openj9:alpine
 LABEL maintainer="Alex"
 LABEL spigot_version="1.12.x <= server <= 1.16.x"
 
+# Setup timezone
+RUN apk add --no-cache tzdata
+ENV TZ=UTC
+
 RUN mkdir /server
 RUN mkdir /src
 
