@@ -60,4 +60,4 @@ CMD="java -Xms${HEAP_SIZE}M -Xmx${HEAP_SIZE}M -Xmns${NURSERY_MINIMUM}M -Xmnx${NU
 echo "launching server with command line: ${CMD}"
 ## END SCRIPT
 
-# ${CMD}
+${CMD}
