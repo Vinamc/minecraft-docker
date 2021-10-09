@@ -9,6 +9,11 @@
 
 ## BEGIN CONFIGURATION
 
+if [ not $GB_MEMORY ]
+then
+    GB_MEMORY=2
+fi
+
 # HEAP_SIZE: This is how much heap (in MB) you plan to allocate
 #            to your server. By default, this is set to 12288MB,
 #            or 12GB.
@@ -38,11 +43,21 @@ else
     FLAG_MEMORY="-XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:InitiatingHeapOccupancyPercent=15"
 fi
 
-AIKAR_FLAG="-Xgcpolicy:balanced -Xdisableexplicitgc -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch ${FLAG_MEMORY} -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true"
+if [ $DISABLE_AIKAR_FLAG ]
+then
+    AIKAR_FLAG=""
+else
+    AIKAR_FLAG="-Xgcpolicy:balanced -Xdisableexplicitgc -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch ${FLAG_MEMORY} -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true "
+fi
+
+if [ $CUSTOM_FLAG ]
+then
+    CUSTOM_FLAG="${CUSTOM_FLAG} "
+fi
 
 # Launch the server.
-CMD="java -Xms${HEAP_SIZE}M -Xmx${HEAP_SIZE}M -Xmns${NURSERY_MINIMUM}M -Xmnx${NURSERY_MAXIMUM}M -Xtune:virtualized ${AIKAR_FLAG} -jar /server/${JAR_NAME} nogui"
+CMD="java -Xms${HEAP_SIZE}M -Xmx${HEAP_SIZE}M -Xmns${NURSERY_MINIMUM}M -Xmnx${NURSERY_MAXIMUM}M -Xtune:virtualized ${AIKAR_FLAG}${CUSTOM_FLAG}-jar /server/${JAR_NAME} nogui"
 echo "launching server with command line: ${CMD}"
 ## END SCRIPT
 
-${CMD}
+# ${CMD}
