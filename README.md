@@ -5,6 +5,7 @@ This image provide OpenJ9 java optimized with aikar flag. Come with three differ
   - `alexzvn/spigot-runner:alpha` for `server <= 1.12.x` running java 8
   - `alexzvn/spigot-runner:beta` for `1.12.x <= server <= 1.16.x`  running java 11
   - `alexzvn/spigot-runner:delta` for `server >= 1.17.x` running java 16
+  - `alexzvn/spigot-runner:gammar` for `server 1.18.x` running java 17
 
 ## Environment
   - `TZ`: Timezone for container, see full list in [Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
