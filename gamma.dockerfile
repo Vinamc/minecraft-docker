@@ -19,4 +19,4 @@ COPY . /src
 
 RUN sed -i 's/\r$//' /src/docker-entrypoint.sh && chmod +x /src/docker-entrypoint.sh
 
-CMD [ "sh", "/src/docker-entrypoint.sh" ]
+CMD [ "sh", "/src/gamma-entrypoint.sh" ]
