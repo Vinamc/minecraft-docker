@@ -14,6 +14,7 @@ WORKDIR /server
 
 ENV GB_MEMORY=2
 ENV JAR_NAME=paperclip.jar
+ENV VERSION=1.16.5
 
 COPY . /src
 

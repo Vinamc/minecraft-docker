@@ -12,6 +12,7 @@ This image provide OpenJ9 java optimized with aikar flag. Come with three differ
   - `GB_MEMORY`: Maximum GB ram for server, default value is `2`.
   - `JAR_NAME`: The name of your server's JAR file. The default is "paperclip.jar".  If you're not using Paper (http://papermc.io), then you should really switch.
   - `DISABLE_AIKAR_FLAG`: set to `true` if you want to disable Aikar's flag enable by default
+  - `FIX_LOG4J_FLAG`: set to `false` if you want to disable them
   - `CUSTOM_FLAG`: Insert custom flag when run server
 
 ## Volumes

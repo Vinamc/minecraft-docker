@@ -55,8 +55,38 @@ then
     CUSTOM_FLAG="${CUSTOM_FLAG} "
 fi
 
+# get 2nd number after '.' in version
+VERSION_NUMBER=$(echo $VERSION | cut -d. -f2)
+
+if [ $VERSION_NUMBER -gt 17 ]
+then
+    LDAP_LOG4J=""
+
+elif [ $VERSION_NUMBER -ge 17 ]
+then
+    LDAP_LOG4J="-Dlog4j2.formatMsgNoLookups=true"
+
+elif [ $VERSION_NUMBER -ge 12 ]
+then
+    LDAP_LOG4J="-Dlog4j.configurationFile=log4j2_112-116.xml"
+
+elif [ $VERSION_NUMBER -ge 7 ]
+then
+    LDAP_LOG4J="-Dlog4j.configurationFile=log4j2_17-111.xml"
+
+else
+    LDAP_LOG4J=""
+fi
+
+if [ "$FIX_LOG4J_FLAG" = "false" ]
+then
+    FIX_LOG4J_FLAG=""
+else
+    FIX_LOG4J_FLAG="${LDAP_LOG4J} "
+fi
+
 # Launch the server.
-CMD="java -Xms${HEAP_SIZE}M -Xmx${HEAP_SIZE}M -Xmns${NURSERY_MINIMUM}M -Xmnx${NURSERY_MAXIMUM}M -Xtune:virtualized ${AIKAR_FLAG}${CUSTOM_FLAG}-jar /server/${JAR_NAME} nogui"
+CMD="java -Xms${HEAP_SIZE}M -Xmx${HEAP_SIZE}M -Xmns${NURSERY_MINIMUM}M -Xmnx${NURSERY_MAXIMUM}M -Xtune:virtualized ${FIX_LOG4J_FLAG}${AIKAR_FLAG}${CUSTOM_FLAG}-jar /server/${JAR_NAME} nogui"
 echo "launching server with command line: ${CMD}"
 ## END SCRIPT
 
