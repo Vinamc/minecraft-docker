@@ -9,6 +9,7 @@ This image provide OpenJ9 java optimized with aikar flag. Come with three differ
 
 ## Environment
   - `TZ`: Timezone for container, see full list in [Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+  - `VERSION`: your spigot/paper server version (used for fix log4j)
   - `GB_MEMORY`: Maximum GB ram for server, default value is `2`.
   - `JAR_NAME`: The name of your server's JAR file. The default is "paperclip.jar".  If you're not using Paper (http://papermc.io), then you should really switch.
   - `DISABLE_AIKAR_FLAG`: set to `true` if you want to disable Aikar's flag enable by default
