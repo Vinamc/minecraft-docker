@@ -7,6 +7,7 @@ This image provide OpenJ9 java optimized with aikar flag. Come with three differ
   - `alexzvn/spigot-runner:delta` for `server >= 1.17.x` running java 16
   - `alexzvn/spigot-runner:gamma` for `server 1.18.x` running java 17
 
+*Note: that all above is run on AdoptOpenJDK except for `gamma` version is run on OpenJDK*
 ## Environment
   - `TZ`: Timezone for container, see full list in [Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
   - `VERSION`: your spigot/paper server version (used for fix log4j)
