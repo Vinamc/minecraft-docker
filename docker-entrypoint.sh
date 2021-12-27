@@ -68,11 +68,11 @@ then
 
 elif [ $VERSION_NUMBER -ge 12 ]
 then
-    LDAP_LOG4J="-Dlog4j.configurationFile=log4j2_112-116.xml"
+    LDAP_LOG4J="-Dlog4j.configurationFile=/src/log4j2_112-116.xml"
 
 elif [ $VERSION_NUMBER -ge 7 ]
 then
-    LDAP_LOG4J="-Dlog4j.configurationFile=log4j2_17-111.xml"
+    LDAP_LOG4J="-Dlog4j.configurationFile=/src/log4j2_17-111.xml"
 
 else
     LDAP_LOG4J=""
