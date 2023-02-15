@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-alpine
+FROM eclipse-temurin:19-alpine
 
 LABEL maintainer="Alex"
 LABEL spigot_version="server 1.18.x"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for VERSION in alpha beta delta gamma
+for VERSION in alpha beta delta gamma epsilon
 do
     docker build -t spigot-runner:${VERSION} -f ${VERSION}.dockerfile .
     docker image tag spigot-runner:${VERSION} alexzvn/spigot-runner:${VERSION}
